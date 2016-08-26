@@ -1,6 +1,6 @@
 
 # Clean the tweets
-result = score.sentiment(sample, pos.words, neg.words)
+result = score.sentiment(df$text, pos.words, neg.words)
 
 
  library(reshape)
