@@ -40,6 +40,7 @@ test1=result[[1]]
 test2=result[[2]]
 test3=result[[3]]
 
+#Creating three different data frames for Score, Positive and Negative
 #Removing text column from data frame
 test1$text=NULL
 test2$text=NULL
@@ -58,4 +59,35 @@ qq3['Negative'] = NULL
 table1 = data.frame(Text=result[[1]]$text, Score=qq1)
 table2 = data.frame(Text=result[[2]]$text, Score=qq2)
 table3 = data.frame(Text=result[[3]]$text, Score=qq3)
+
+#Merging three data frames into one
+ table_final=data.frame(Text=table1$Text, Score=table1$value, Positive=table2$value, Negative=table3$value)
+
+#Making percentage columns
+
+p=table_final$Positive/(table_final$Positive+table_final$Negative)
+p[ is.nan(p) ] <- 0
+table_final$Postive_percentage=p
+rename(table_final, c("Positive_percentage"=Pos_percent"))
+n=table_final$Positive/(table_final$Positive+table_final$Negative)
+n[ is.nan(n) ] <- 0
+table_final$Neg_percent=n
+
+
+#Creating Histogramm
+
+hist(table_final$Score, colour=rainbow(10))
+hist(table_final$Positive, colour=rainbow(10))
+hist(table_final$Negative, colour=rainbow(10))
+
+#Creating Pie Chart
+
+install.packages("plotrix")
+library(plotrix)
+
+ slices <- c(sum(table_final$Positive), sum(table_final$Negative))
+lbls <- c("Positive", "Negative")
+pie(slices, labels = lbls, col=rainbow(length(lbls)), main="Sentiment Analysis")
+pie3D(slices, labels = lbls, explode=0.0, col=rainbow(length(lbls)), main="Sentiment Analysis")
+
 
