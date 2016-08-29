@@ -12,7 +12,7 @@ cred <- OAuthFactory$new(consumerKey='AKJsxNqX2D8uTo9orgjRirvWL', consumerSecret
 
 cred$handshake(cainfo="cacert.pem")
 	
-sindhu.tweets = searchTwitter(‘@sindhu’, n=1500)
+sindhu.tweets = searchTwitter(â€˜@sindhuâ€™, n=1500)
 
 #Adding words to positive and negative databases
 pos.words=c(pos.words, 'Congrats', 'prizes', 'prize', 'thanks', 'thnx', 'Grt', 'gr8', 'plz', 'trending', 'recovering', 'brainstorm', 'leader')
@@ -122,7 +122,7 @@ neutral= sapply(table_final$Score, function(Sc) Sc == 0)
 neu=table_final$Score[neutral]
 neu_len=length(neu)
 
-slices1 <- c(pos1_len,neg3_len, neg1_len, pos2_len,  neg2_len, neu_len, pos3_len)
+slices1 <- c(pos1_len,neg3_len, neg1_len, pos2_len, neg2_len, neu_len, pos3_len)
 lbls1 <- c( "Good","Awful","Unsatisfactory", "Great", "Poor", "Neutral", "Outstanding")
 pct=round(slices1/sum(slices1)*100)
 lbls1 <- paste(lbls1, pct) # add percents to labels 
