@@ -1,0 +1,3 @@
+Limitations
+
+1. The Twitter Search API can get tweets upto a maximum of 7 days old.
