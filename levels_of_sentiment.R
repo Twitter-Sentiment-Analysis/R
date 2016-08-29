@@ -3,7 +3,7 @@
 Sc = table_final$Score
 
 #Output of following is FALSE or TRUE
-good <- sapply(Sc, function(Sc) Sc < 3 && Sc > 0)
+good <- sapply(Sc, function(Sc) Sc <= 3 && Sc > 0)
 #Converts to actual value
 Sc[good]
 list_good = Sc[good]
@@ -11,7 +11,7 @@ value_good = length(list_good)
 
 #Very good
 
-vgood <- sapply(Sc, function(Sc) Sc >= 3 && Sc <6)
+vgood <- sapply(Sc, function(Sc) Sc > 3 && Sc <6)
 #Converts to actual value
 Sc[vgood]
 list_vgood = Sc[vgood]
@@ -28,7 +28,7 @@ value_vvgood = length(list_vvgood)
 #Bad : Unsatisfactory
 
 #Output of following is FALSE or TRUE
-bad <- sapply(Sc, function(Sc) Sc > -3 && Sc < 0)
+bad <- sapply(Sc, function(Sc) Sc >= -3 && Sc < 0)
 #Converts to actual value
 Sc[bad]
 list_bad = Sc[bad]
@@ -37,7 +37,7 @@ value_bad = length(list_bad)
 #Very bad : Poor
 
 #Output of following is FALSE or TRUE
-vbad <- sapply(Sc, function(Sc) Sc <= 3 && Sc > -6)
+vbad <- sapply(Sc, function(Sc) Sc < 3 && Sc > -6)
 #Converts to actual value
 Sc[vbad]
 list_vbad = table_final$Negative[vbad]
