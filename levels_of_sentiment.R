@@ -37,10 +37,10 @@ value_bad = length(list_bad)
 #Very bad : Poor
 
 #Output of following is FALSE or TRUE
-vbad <- sapply(Sc, function(Sc) Sc < 3 && Sc > -6)
+vbad <- sapply(Sc, function(Sc) Sc < -3 && Sc > -6)
 #Converts to actual value
 Sc[vbad]
-list_vbad = table_final$Negative[vbad]
+list_vbad = Sc[vbad]
 value_vbad = length(list_vbad)
 
 #Awful
