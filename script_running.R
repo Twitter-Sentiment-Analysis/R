@@ -90,4 +90,42 @@ lbls <- c("Positive", "Negative")
 pie(slices, labels = lbls, col=rainbow(length(lbls)), main="Sentiment Analysis")
 pie3D(slices, labels = lbls, explode=0.0, col=rainbow(length(lbls)), main="Sentiment Analysis")
 
+#Creating Pie chart with percentages for degree of positive,neagtive,neutral
 
+Sc= table_final$Score
+good<- sapply(table_final$Score, function(Sc) Sc>0&&Sc<=3)
+pos1=table_final$Score[good]
+pos1_len=length(pos1)
+
+vgood<- sapply(table_final$Score, function(Sc) Sc>3&&Sc<5)
+pos2=table_final$Score[vgood]
+pos2_len=length(pos2)
+
+vvgood<- sapply(table_final$Score, function(Sc) Sc>=6)
+pos3=table_final$Score[vvgood]
+pos3_len=length(pos3)
+
+Sc= table_final$Score
+bad<- sapply(table_final$Score, function(Sc) Sc<0&&Sc>=-3)
+neg1=table_final$Score[bad]
+neg1_len=length(neg1)
+
+vbad<- sapply(table_final$Score, function(Sc) Sc<-3&&Sc>=-5)
+neg2=table_final$Score[vbad]
+neg2_len=length(neg2)
+
+vvbad<- sapply(table_final$Score, function(Sc) Sc<=-6)
+neg3=table_final$Score[vvbad]
+neg3_len=length(neg3)
+
+neutral= sapply(table_final$Score, function(Sc) Sc == 0)
+neu=table_final$Score[neutral]
+neu_len=length(neu)
+
+slices1 <- c(pos1_len,neg3_len, neg1_len, pos2_len,  neg2_len, neu_len, pos3_len)
+lbls1 <- c( "Good","Awful","Unsatisfactory", "Great", "Poor", "Neutral", "Outstanding")
+pct=round(slices1/sum(slices1)*100)
+lbls1 <- paste(lbls1, pct) # add percents to labels 
+lbls1 <- paste(lbls1,"%",sep="") # ad % to labels 
+pie(slices1,labels = lbls1, col=rainbow(length(lbls1)),
+  	main="No. of tweets with particular sentiment")
