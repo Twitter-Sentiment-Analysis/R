@@ -54,10 +54,10 @@ list_vvbad = negSc[vvbad]
 value_vvbad = length(list_vvbad)
 
 library(plotrix)
-slices <- c(value_good, value_vvbad,  value_vgood, value_vvgood , value_bad, value_vbad)
-lbls <- c("Good", "Awful", "Great", "Outstanding", "Unsatisfactory", "Poor")
-pct <- round(slices/sum(slices)*100)
-lbls <- paste(lbls, pct) # add percents to labels 
-lbls <- paste(lbls,"%",sep="") # ad % to labels 
-pie(slices,labels = lbls, col=rainbow(length(lbls)),
-  	 main="Pie Chart of Countries")
+slices1 <- c(value_good, value_vvbad,  value_vgood, value_vvgood , value_bad, value_vbad)
+lbls1 <- c("Good", "Awful", "Great", "Outstanding", "Unsatisfactory", "Poor")
+pct <- round(slices1/sum(slices1)*100) #Percentage
+lbls1 <- paste(lbls1, pct) # add percents to labels 
+lbls1 <- paste(lbls1,"%",sep="") # ad % to labels 
+pie(slices1,labels = lbls1, col=rainbow(length(lbls1)),
+  	 main="Number of tweets with particular sentiment")
