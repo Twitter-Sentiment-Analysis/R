@@ -93,28 +93,28 @@ pie3D(slices, labels = lbls, explode=0.0, col=rainbow(length(lbls)), main="Senti
 #Creating Pie chart with percentages for degree of positive,neagtive,neutral
 
 Sc= table_final$Score
-good<- sapply(table_final$Score, function(Sc) Sc>0&&Sc<=3)
+good<- sapply(table_final$Score, function(Sc) Sc > 0 && Sc <= 3)
 pos1=table_final$Score[good]
 pos1_len=length(pos1)
 
-vgood<- sapply(table_final$Score, function(Sc) Sc>3&&Sc<5)
+vgood<- sapply(table_final$Score, function(Sc) Sc > 3 && Sc < 5)
 pos2=table_final$Score[vgood]
 pos2_len=length(pos2)
 
-vvgood<- sapply(table_final$Score, function(Sc) Sc>=6)
+vvgood<- sapply(table_final$Score, function(Sc) Sc >= 6)
 pos3=table_final$Score[vvgood]
 pos3_len=length(pos3)
 
 Sc= table_final$Score
-bad<- sapply(table_final$Score, function(Sc) Sc<0&&Sc>=-3)
+bad<- sapply(table_final$Score, function(Sc) Sc < 0 && Sc >= -3)
 neg1=table_final$Score[bad]
 neg1_len=length(neg1)
 
-vbad<- sapply(table_final$Score, function(Sc) Sc<-3&&Sc>=-5)
+vbad<- sapply(table_final$Score, function(Sc) Sc < -3 && Sc >= -5)
 neg2=table_final$Score[vbad]
 neg2_len=length(neg2)
 
-vvbad<- sapply(table_final$Score, function(Sc) Sc<=-6)
+vvbad<- sapply(table_final$Score, function(Sc) Sc <= -6)
 neg3=table_final$Score[vvbad]
 neg3_len=length(neg3)
 
