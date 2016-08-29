@@ -1,61 +1,64 @@
 #Good
 
-posSc = table_final$Positive
+Sc = table_final$Score
 
 #Output of following is FALSE or TRUE
-good <- sapply(posSc, function(posSc) posSc < 3)
+good <- sapply(Sc, function(Sc) Sc < 3 && Sc > 0)
 #Converts to actual value
-posSc[good]
-list_good = posSc[good]
+Sc[good]
+list_good = Sc[good]
 value_good = length(list_good)
 
 #Very good
 
-vgood <- sapply(posSc, function(posSc) posSc >= 3 && posSc <6)
+vgood <- sapply(Sc, function(Sc) Sc >= 3 && Sc <6)
 #Converts to actual value
-posSc[vgood]
-list_vgood = posSc[vgood]
+Sc[vgood]
+list_vgood = Sc[vgood]
 value_vgood = length(list_vgood)
 
 #Outstanding
 
-vvgood <- sapply(posSc, function(posSc) posSc >= 6)
+vvgood <- sapply(Sc, function(Sc) Sc >= 6)
 #Converts to actual value
-posSc[vvgood]
-list_vvgood = posSc[vvgood]
+Sc[vvgood]
+list_vvgood = Sc[vvgood]
 value_vvgood = length(list_vvgood)
 
 #Bad : Unsatisfactory
 
-negSc = table_final$Negative
-
 #Output of following is FALSE or TRUE
-bad <- sapply(negSc, function(negSc) negSc < 3)
+bad <- sapply(Sc, function(Sc) Sc > -3 && Sc < 0)
 #Converts to actual value
-negSc[bad]
-list_bad = negSc[bad]
+Sc[bad]
+list_bad = Sc[bad]
 value_bad = length(list_bad)
 
 #Very bad : Poor
 
 #Output of following is FALSE or TRUE
-vbad <- sapply(negSc, function(negSc) negSc >= 3 && negSc < 6)
+vbad <- sapply(Sc, function(Sc) Sc <= 3 && Sc > -6)
 #Converts to actual value
-negSc[vbad]
+Sc[vbad]
 list_vbad = table_final$Negative[vbad]
 value_vbad = length(list_vbad)
 
 #Awful
 
-vvbad <- sapply(negSc, function(negSc) negSc >= 6)
+vvbad <- sapply(Sc, function(Sc) Sc <= -6)
 #Converts to actual value
-negSc[vvbad]
-list_vvbad = negSc[vvbad]
+Sc[vvbad]
+list_vvbad = Sc[vvbad]
 value_vvbad = length(list_vvbad)
 
+#Neutral
+neutral <- sapply(Sc, function(Sc) Sc == 0) 
+list_neutral = Sc[neutral]
+value_neutral = length(list_neutral)
+
 library(plotrix)
-slices1 <- c(value_good, value_vvbad,  value_vgood, value_vvgood , value_bad, value_vbad)
-lbls1 <- c("Good", "Awful", "Great", "Outstanding", "Unsatisfactory", "Poor")
+slices1 <- c(value_good, value_vvbad, value_bad, value_vgood, value_vbad, value_neutral, value_vvgood )
+lbls1 <- c("Good", "Awful", "Unsatisfactory", "Great", "Poor", "Neutral", "Outstanding")
 pct <- round(slices1/sum(slices1)*100) #Percentage
 lbls1 <- paste(lbls1, pct) # add percents to labels 
 lbls1 <- paste(lbls1,"%",sep="") # ad % to labels 
