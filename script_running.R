@@ -12,7 +12,7 @@ cred <- OAuthFactory$new(consumerKey='AKJsxNqX2D8uTo9orgjRirvWL', consumerSecret
 
 cred$handshake(cainfo="cacert.pem")
 	
-sindhu.tweets = searchTwitter(â€˜@sindhuâ€™, n=1500)
+sindhu.tweets = searchTwitter(‘@sindhu’, n=1500)
 
 #Adding words to positive and negative databases
 pos.words=c(pos.words, 'Congrats', 'prizes', 'prize', 'thanks', 'thnx', 'Grt', 'gr8', 'plz', 'trending', 'recovering', 'brainstorm', 'leader')
@@ -122,10 +122,42 @@ neutral= sapply(table_final$Score, function(Sc) Sc == 0)
 neu=table_final$Score[neutral]
 neu_len=length(neu)
 
-slices1 <- c(pos1_len,neg3_len, neg1_len, pos2_len, neg2_len, neu_len, pos3_len)
+slices1 <- c(pos1_len,neg3_len, neg1_len, pos2_len,  neg2_len, neu_len, pos3_len)
 lbls1 <- c( "Good","Awful","Unsatisfactory", "Great", "Poor", "Neutral", "Outstanding")
 pct=round(slices1/sum(slices1)*100)
 lbls1 <- paste(lbls1, pct) # add percents to labels 
 lbls1 <- paste(lbls1,"%",sep="") # ad % to labels 
 pie(slices1,labels = lbls1, col=rainbow(length(lbls1)),
   	main="No. of tweets with particular sentiment")
+
+#WORDCLOUD
+
+#install.packages("wordcloud")
+library(wordcloud)
+
+#install.packages("tm")
+library(tm)
+
+earthquake.tweets=searchTwitter("earthquake", lang="en", n=1500, resultType="recent")
+df <- do.call("rbind", lapply(earthquake.tweets, as.data.frame))
+earthquake_text <- sapply(df$text,function(row) iconv(row, "latin1", "ASCII", sub=""))
+
+ #str(earthquake_text) -> gives character vector
+
+quake_corpus = Corpus(VectorSource(earthquake_text))
+
+#inspect(quake_corpus[1])
+
+#clean text
+
+quake_clean = tm_map(quake_corpus, removePunctuation)
+quake_clean = tm_map(quake_clean, content_transformer(tolower))
+quake_clean = tm_map(quake_clean, removeWords, stopwords("english"))
+quake_clean = tm_map(quake_clean, removeNumbers)
+quake_clean = tm_map(quake_clean, stripWhitespace)
+
+#cleaning most frequent words
+#italy_clean = tm_map(quake_clean, removeWords, c ("Italy", "earthquake"))
+wordcloud(quake_clean, random.order=F,max.words=80, col=rainbow(50), scale=c(4,0.5))
+
+
