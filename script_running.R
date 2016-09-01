@@ -12,7 +12,7 @@ cred <- OAuthFactory$new(consumerKey='AKJsxNqX2D8uTo9orgjRirvWL', consumerSecret
 
 cred$handshake(cainfo="cacert.pem")
 	
-sindhu.tweets = searchTwitter(‘@sindhu’, n=1500)
+sindhu.tweets = searchTwitter(â€˜@sindhuâ€™, n=1500)
 
 #Adding words to positive and negative databases
 pos.words=c(pos.words, 'Congrats', 'prizes', 'prize', 'thanks', 'thnx', 'Grt', 'gr8', 'plz', 'trending', 'recovering', 'brainstorm', 'leader')
@@ -20,9 +20,9 @@ neg.words = c(neg.words, 'Fight', 'fighting', 'wtf', 'arrest', 'no', 'not')
 
 #Extracting textual part of the tweets
 
-sample=NULL  #Initialising
-for (tweet in sindhu.tweets)
-sample = c(sample,tweet$getText())
+#sample=NULL  #Initialising  #We can get the text from df$text, which are the cleand tweets
+#for (tweet in sindhu.tweets)
+#sample = c(sample,tweet$getText())
 
 #Removing emoticons
 
