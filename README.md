@@ -12,6 +12,7 @@ Short Version - The codes are compiled into one file script_running.R
 
 Longer Modular Version-
 For easier understanding, the above code is modularized and must be learnt in following order-
+Following are for lexical based twitter analyzer (Tweets to find sentiment about people)
 1. authentication.R
 2. tweet_extraction.R
 3. Word Database.R
