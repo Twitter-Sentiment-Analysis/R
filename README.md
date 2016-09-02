@@ -18,8 +18,9 @@ Following are for lexical based twitter analyzer (Tweets to find sentiment about
 3. Word Database.R  
 4. cleaning_data.R  
 5. emoticon.R  
-6. func_on_tweet.R  
-7. graphs.R  
-8. Percentage.R  
-9. level_of_sentiment.R  
-10. wordcloud.R  
+6. score_sentiment.R  
+7. func_on_tweet.R  
+8. graphs.R  
+9. Percentage.R  
+10. level_of_sentiment.R  
+11. wordcloud.R  
