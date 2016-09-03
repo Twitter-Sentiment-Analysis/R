@@ -23,6 +23,6 @@ Following are for lexical based twitter analyzer (Tweets to find sentiment about
 8. graphs.R  
 9. Percentage.R  
 10. level_of_sentiment.R 
-11. Frequent hastags of user.R
-12. Top tweeters and timeline of particular hashtag.R
-13. wordcloud.R  
+11. Frequent hastags of user.R  
+12. Top tweeters and timeline of particular hashtag.R  
+13. wordcloud.R    
