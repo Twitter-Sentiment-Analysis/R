@@ -1,5 +1,7 @@
-Limitations
+Limitations   
 
-1. The Twitter Search API can get tweets upto a maximum of 7 days old.
-2. Not effective in detecting sarcasm.
-3. Cannot get 100% efficiency in analysing sentiment of tweets.
+1. The Twitter Search API can get tweets upto a maximum of 7 days old.  
+2. Not effective in detecting sarcasm.   
+3. Cannot get 100% efficiency in analysing sentiment of tweets.   
+4. There’s a limitation with this code –  can only retrieve a maximum of 1500 tweets per   
+   query without authenticating via OAuth before receiving a 403 error.
