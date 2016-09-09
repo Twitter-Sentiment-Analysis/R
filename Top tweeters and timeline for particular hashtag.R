@@ -4,7 +4,7 @@
 library(ggplot2)
 
 tweets <- list()
-dates <- paste("2016-09-",1:3,sep="") 
+dates <- paste("2016-09-",1:3,sep="") #SUGGESTION: Modify these dates of upto 7 days before running this program 
 for (i in 2:length(dates)) {
   print(paste(dates[i-1], dates[i]))
   tweets <- c(tweets, searchTwitter("#picture", since=dates[i-1], until=dates[i], n=1000))
