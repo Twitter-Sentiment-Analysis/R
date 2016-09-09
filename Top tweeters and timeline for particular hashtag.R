@@ -26,25 +26,23 @@ table(tweets$date)
 
 # Make a table of the number of tweets per user
 d <- as.data.frame(table(tweets$screenName))
-d <- d[order(d$Freq, decreasing=T), ]
+d <- d[order(d$Freq, decreasing=T), ] #descending order of tweeters according to frequency of tweets
 names(d) <- c("User","Tweets")
 head(d)
 
 # Plot the table above for the top 20
 barplot(head(d$Tweets, 20), names=head(d$User, 20), horiz=T, las=1, main="Top 20: Tweets per User", col=1)
 
-# Plot the frequency of tweets over time in two hour windows
+# Plot the frequency of tweets over time in one hour windows
 # Modified from http://michaelbommarito.com/2011/03/12/a-quick-look-at-march11-saudi-tweets/
 minutes <- 60
-
-#bar plot
 ggplot(data=tweets, aes(x=created)) + 
   geom_histogram(aes(fill=..count..), binwidth=60*minutes) + 
   scale_x_datetime("Date") + 
-  scale_y_continuous("Frequency") 
+  scale_y_continuous("Frequency")
   
-#line plot
-  ggplot(data=tweets, aes(x=created)) + 
-  geom_line (aes(fill=..count..), stat="bin", binwidth=60*minutes) + 
-  scale_x_datetime("Date") + 
-  scale_y_continuous("Frequency") 
+#For making a (monstrous):O line plot instead:
+#ggplot(data=tweets, aes(x=created)) + 
+#  geom_area(aes(y=..count..), stat="bin") + 
+#  scale_x_datetime("Date") + 
+#  scale_y_continuous("Frequency")
