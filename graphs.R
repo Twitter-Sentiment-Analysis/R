@@ -3,7 +3,7 @@ table_final = data.frame(table1$Text, table1$value, table2$value, table3$value)
 
 #Histogram
 hist(table_final$Positive, col=rainbow(10))
-hist(table_final$Negative, col=rainboinw(10))
+hist(table_final$Negative, col=rainbow(10))
 hist(table_final$Score, col=rainbow(10))
 
 #Pie
