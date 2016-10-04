@@ -1,3 +1,5 @@
+#after authentication
+
 library(TwitteR)
 
 #Get woeid of all locations on Earth
