@@ -2,6 +2,10 @@
 
 library(TwitteR)
 
+#Get woeid of all locations on Earth
+#a_trends = availableTrendLocations()
+#aa=sort(a_trends$name)
+
 #take input of place
 #get woeid
 #print table of hashtag, url
