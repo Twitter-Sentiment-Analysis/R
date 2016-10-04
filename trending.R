@@ -4,6 +4,9 @@ library(TwitteR)
 
 #Get woeid of all locations on Earth
 a_trends = availableTrendLocations()
+#Get woeid from input location
+woeid=a_trends[3,which(a_trends$name == 'Ottawa')]
+
 
 #Get trending tweets worldwide
 today_trends = getTrends(1);
