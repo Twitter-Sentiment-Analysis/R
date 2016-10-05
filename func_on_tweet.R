@@ -30,3 +30,5 @@ table2 = data.frame(Text=result[[2]]$text, Score=qq2)
 table3 = data.frame(Text=result[[3]]$text, Score=qq3)
 
 
+#Merging three data frames into one
+table_final=data.frame(Text=table1$Text, Score=table1$value, Positive=table2$value, Negative=table3$value)
