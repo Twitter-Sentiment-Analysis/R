@@ -1,9 +1,8 @@
 
 # Clean the tweets
-result = score.sentiment(df$text, pos.words, neg.words)
+result = score.sentiment(sample, pos.words, neg.words)
 
-
- library(reshape)
+library(reshape)
 #Creating a copy of result data frame
 test1=result[[1]]
 test2=result[[2]]
@@ -28,7 +27,6 @@ qq3['Negative'] = NULL
 table1 = data.frame(Text=result[[1]]$text, Score=qq1)
 table2 = data.frame(Text=result[[2]]$text, Score=qq2)
 table3 = data.frame(Text=result[[3]]$text, Score=qq3)
-
 
 #Merging three data frames into one
 table_final=data.frame(Text=table1$Text, Score=table1$value, Positive=table2$value, Negative=table3$value)
