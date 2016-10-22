@@ -12,7 +12,7 @@ library(TwitteR)
 
 #Let input Ottawa
 a_trends = availableTrendLocations()
-woeid = a_trends[3,which(a_trends$name=="Ottawa")]
+woeid = a_trends[which(a_trends$name=="Ottawa"),3]
 canada_trends = getTrends(woeid)
 trends = canada_trends[1:2]
 
