@@ -10,6 +10,8 @@ for (i in 2:length(dates)) {
   tweets <- c(tweets, searchTwitter("#picture", since=dates[i-1], until=dates[i], n=1000))
 }
 
+# as.Date(as.Date(Sys.Date()-7):as.Date(Sys.Date()), origin="1970-01-01") //general view
+
 # Convert the list to a data frame
 tweets <- twListToDF(tweets)
 tweets <- unique(tweets)
