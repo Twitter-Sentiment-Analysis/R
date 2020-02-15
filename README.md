@@ -2,8 +2,9 @@
 # R  
 Takes feeds from Twitter into R. The sentiment of the tweets is analysed and classified into positive, negative and neutral tweets.  
 
-### System Requirements  
+### Pre-requisites 
 1. Installation of R (Version 3.3.1) 
+2. Twitter Authentication to access API
 
 ### Dependencies
 - twitteR 
